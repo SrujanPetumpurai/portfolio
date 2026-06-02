@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css'
 const titles =[
     'I build full stack web apps, and I love shipping real products that actually work.',
     'Full stack developer. I love building things from idea to deployment.',
@@ -7,24 +8,130 @@ const titles =[
 ---
 <header>
     <div class="container">
-        <h1>
-            SRUJAN PETUMPURI
-        </h1>
-        <p class="title">
-            {titles[1]}
-        </p>
-        <div class="header-links">
-            <ul>
-                <a href="mailto:srujan.petumpurai@gmail.com?subject=Portfolio enquiry" target="_blank" rel="nooopener noreferrer">
-                    mail
-                </a>
-                <a href="https://www.linkedin.com/in/srujan-petumpuri-1a13981ba/" target="_blank" rel="nooopener noreferrer">
-                    linkdin
-                </a>
-                <a href="https://github.com/SrujanPetumpurai" target="_blank" rel="nooopener noreferrer">
-                    github
-                </a>
-            </ul>
+        <div class="profile">
+            <img src="/blue_tint_pixel.png" alt="">
+            <div>
+                <h1>
+                    Srujan Petumpuri
+                </h1>
+                <p class="title">
+                    {titles[1]}
+                </p>
+                <div class="header-links">
+                    <ul>
+                        <li>
+                            <a href="mailto:srujan.petumpurai@gmail.com?subject=Portfolio enquiry" target="_blank" rel="nooopener noreferrer">
+                            mail
+                        </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/SrujanPetumpurai" target="_blank" rel="nooopener noreferrer">
+                                github
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/srujan-petumpuri-1a13981ba/" target="_blank" rel="nooopener noreferrer">
+                            linkedin
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
+        
+        
     </div>
 </header>
+
+
+<style>
+  .container {
+    width:min( 100%);
+    padding-left: clamp(1rem,16vw,400px);
+    display: flex;
+    flex-direction: column;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    width: 100%;
+    gap: clamp(2rem,5vw,12rem);
+    margin-top: clamp(1rem, 22vw, 10rem);
+}
+.profile img {
+    width: 32%;
+    max-width:220px ;
+    height:auto;
+    object-fit: cover;
+    align-self: center;
+    border-radius: 12%;
+}
+.profile div {
+    display: flex;
+    flex-direction: column;
+    width:68%;
+    align-items: start;
+    justify-content: start;
+}
+
+
+h1 {
+    font-family: 'Jersey 10', sans-serif;
+    font-size: clamp(4rem,4vw + 2rem,4.4rem);
+    font-weight: 400;
+    color: #D7D9AF;
+}
+
+p {
+    font-family: 'Pixelify Sans', sans-serif;
+    font-size: clamp(1.4rem,1.6vw,2rem);
+    color: #9FB191;
+    padding-top:1.2rem
+}
+
+.header-links{
+        margin:1.2rem 0;
+        width: 100%;
+        align-self: start;
+}
+ul {
+    display: flex;
+    align-items: start;
+    width: 100%;
+    gap: 2rem;
+    list-style: none;
+    font-size: 1rem;
+    font-family:"Space Grotesk",sans-serif ;
+    font-weight: 600;
+    color: #9FB191;
+}
+
+li a {
+    text-decoration: none;
+    border-bottom: 1px solid rgba(159, 177, 145, 0.4); 
+    padding-bottom: 0.2rem;
+    color: #9FB191;
+}
+@media(max-width:576px) {
+    .profile{
+        flex-direction: column;
+        gap:1.5rem;
+        align-items: center;
+    }
+    .profile img{
+        width:50%;
+    }
+    .profile div{
+        width:100%;
+        align-items: center;
+        text-align: center;
+    }
+    .header-links ul{
+        justify-content: center;
+    }
+    
+}
+
+</style>
