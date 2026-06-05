@@ -1,0 +1,78 @@
+---
+
+const {stack,title,description,sourceUrl,liveUrl} = Astro.props
+---
+<article>
+    <div class="stack">
+        - {stack.map((item:string,idx:number)=>(
+           <span> {item} {idx < stack.length?'/':''}</span>
+        ))}
+    </div>
+    <h3>{title}</h3>
+    <p>{description}</p>
+    <div class="liveLinks">
+        <a href={liveUrl}>sourceURL 
+            <span class="diagonalArrow">
+             <svg fill="#D2DDB0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="diagonal-arrow-right-up"> <rect width="16px" height="16px" transform="rotate(180 12 12)" opacity="0"></rect> <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z"></path> </g> </g> </g></svg>
+            </span></a>
+        <a href={liveUrl}>liveUrl <span class="diagonalArrow">
+             <svg fill="#D2DDB0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="diagonal-arrow-right-up"> <rect width="16px" height="16px" transform="rotate(180 12 12)" opacity="0"></rect> <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z"></path> </g> </g> </g></svg>
+             </span></a>
+    </div>
+</article>
+<style>
+    article{
+        margin-top: clamp(1rem, 3vw, 6rem);
+        width: 50vw;
+        border-bottom: 1px dashed rgba(152, 171, 137,0.4);
+        padding-bottom: 1rem;
+    }
+    .stack{
+        color:#98AB89;
+        font-family:"Space Grotesk",sans-serif ;
+    }
+    .stack span{
+        font-size: 0.8rem;
+    }
+    h3{
+        color: #D1DDAB;
+        margin-top: clamp(1rem, 1vw, 1.4rem);
+        font-family: 'Jersey 10',sans-serif;
+        font-weight: 200;
+        font-size: clamp(1rem,1vw + 0.8rem,2.3rem);
+    }
+    p{
+        color: #889A81;
+        font-family: 'Pixelify Sans', sans-serif;
+        margin-top: 1rem;
+    }
+    .liveLinks{
+        display: flex;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    .liveLinks a {
+        text-decoration: none;
+        color: #D2DDB0;
+        font-family: 'Pixelify Sans', sans-serif;
+        display: flex;
+        align-items: center;
+        margin-right:clamp(1rem, 1vw, 1.4rem); 
+        border-bottom: 1px dashed #829e71;
+        padding-bottom: 2px;
+        transition:transform 0.2s ease, border-bottom-color 0.2s ease
+    }
+    .liveLinks a:hover{
+        transform:translateY(-3px);
+        border-bottom-color:rgb(155, 175, 142);
+    }
+
+    .diagonalArrow svg{
+        width:1rem;
+        height: auto;
+        margin-left: 5px;
+        
+    }
+</style>
+

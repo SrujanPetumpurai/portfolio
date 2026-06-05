@@ -47,7 +47,6 @@ const titles =[
 <style>
   .container {
     width:min( 100%);
-    padding-left: clamp(1rem,16vw,400px);
     display: flex;
     flex-direction: column;
 }
@@ -68,7 +67,7 @@ const titles =[
     align-self: center;
     border-radius: 12%;
 }
-.profile div {
+.profile > div {
     display: flex;
     flex-direction: column;
     width:68%;
@@ -103,16 +102,23 @@ ul {
     gap: 2rem;
     list-style: none;
     font-size: 1rem;
-    font-family:"Space Grotesk",sans-serif ;
+    font-family:"JetBrains Mono",sans-serif ;
     font-weight: 600;
     color: #9FB191;
 }
 
 li a {
     text-decoration: none;
+    display: inline-block;
+    font-weight: 400;
     border-bottom: 1px solid rgba(159, 177, 145, 0.4); 
     padding-bottom: 0.2rem;
-    color: #9FB191;
+    color: #D6E8B1;
+    transition:transform 0.2s ease-in ,border-bottom-color 0.2s ease-in;
+}
+li a:hover{
+        transform:translateY(-3px);
+        border-bottom-color:rgb(155, 175, 142);
 }
 @media(max-width:576px) {
     .profile{

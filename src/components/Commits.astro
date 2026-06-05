@@ -1,3 +1,147 @@
+---
+const token = import.meta.env.GITHUB_TOKEN;
+const username = "SrujanPetumpurai";
+
+interface ContributionDay {
+  contributionCount: number;
+  date: string;
+  color: string;
+}
+const colorMap: Record<string, string> = {
+  '#ebedf0': '##354745',   // empty — dark olive
+  '#9be9a8': '#4a6741',   // low
+  '#40c463': '#5a7d50',   // medium
+  '#30a14e': '#7a9e6a',   // high
+  '#216e39': '#a8c97a',   // max — bright
+};
+
+interface Week {
+  contributionDays: ContributionDay[];
+}
+
+const query = `{
+  user(login: "${username}") {
+    contributionsCollection {
+      contributionCalendar {
+        weeks {
+          contributionDays {
+            contributionCount
+            date
+            color
+          }
+        }
+      }
+    }
+  }
+}`;
+
+const res = await fetch("https://api.github.com/graphql", {
+  method: "POST",
+  headers: {
+    Authorization: `bearer ${token}`,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ query }),
+});
+
+const { data } = await res.json();
+console.log("raw data:", JSON.stringify(data, null, 2));
+const weeks = data?.user?.contributionsCollection?.contributionCalendar?.weeks;
+console.log("weeks length:", weeks?.length);
+console.log("first week:", JSON.stringify(weeks?.[0], null, 2));
+const totalCommits = weeks.reduce((acc: number, week: Week) => 
+  acc + week.contributionDays.reduce((a: number, d: ContributionDay) => a + d.contributionCount, 0), 0
+);
+---
+
 <section id="commits">
-    This is commits
+  <h2><span class="serialNo">05</span>Commits</h2>
+  <div class="graph">
+    {weeks.map((week: Week) =>
+      <div class="week">
+        {week.contributionDays.map((day: ContributionDay) => (
+          <div
+            class="day"
+            title={`${day.contributionCount} contributions on ${day.date}`}
+            style={`background-color: ${colorMap[day.color] ?? day.color}`}
+          />
+        ))}
+      </div>
+    )}
+  </div>
+  <div class="legend">
+      <span>{totalCommits} commits this year</span>
+      <div class="legend-scale">
+          <span>less</span>
+          {Object.values(colorMap).map(color => (
+          <div class="legend-cell" style={`background-color: ${color}`} />
+          ))}
+          <span>more</span>
+      </div>
+    </div>
 </section>
+
+<style>
+  section {
+    margin-top: clamp(1rem, 7vw, 10rem);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10vw;
+  }
+  h2 {
+    font-family: 'Jersey 10', sans-serif;
+    color: #9FB191;
+    font-size: clamp(2rem, 2vw + 1rem, 2.3rem);
+    border-bottom: 1px dashed rgb(159, 177, 145, 0.5);
+    width: 100%;
+    padding-bottom: 1rem;
+    font-weight: 100;
+  }
+  .serialNo {
+    font-size: 1.4rem;
+  }
+  .graph {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 1.2rem 0;
+  }
+  .week {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .day {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #9FB191;
+  opacity: 0.7;
+  font-family: monospace;
+}
+
+.legend-scale {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.legend-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+</style>

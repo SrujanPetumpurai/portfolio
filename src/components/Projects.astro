@@ -1,8 +1,42 @@
+---
+import ProjectCard from "./ProjectCard.astro"
+const projects =[
+    {
+        stack:['Next.js','Prisma','Kafka','Node.js','Typescript'],
+        title:'Autoflow',
+        description:'An automation platform that lets you connect multiple services to create custom workflows',
+        sourceUrl:'https://github.com/SrujanPetumpurai/autoflow',
+        liveUrl:'https://autoflow-mu.vercel.app/'
+    },
+    {
+        stack:['Next.js','Mongodb','tailwind','typescript','razorpay'],
+        title:'Grubnest',
+        description:'A complete end-to-end online grocery website with payment gateway integration and interactive maps via Leaflet',
+        sourceUrl:'https://github.com/SrujanPetumpurai/grubnest',
+        liveUrl:'https://grubnest.vercel.app/home'
+    }
+]
+---
 <section id="projects">
-    This is Projects
+    <h2><span class="serialNo">02</span>Projects</h2>
+    <ProjectCard stack={projects[0].stack} title={projects[0].title} description={projects[0].description} srouceUrl={projects[0].sourceUrl} liveUrl={projects[0].liveUrl} ></ProjectCard>
+    <ProjectCard stack={projects[1].stack} title={projects[1].title} description={projects[1].description} srouceUrl={projects[1].sourceUrl} liveUrl={projects[1].liveUrl} ></ProjectCard>
+    
 </section>
 <style>
     section{
-        margin-top: 20rem;
+        margin-top: clamp(1rem, 7vw, 10rem);
+    }
+    h2{
+        font-family: 'Jersey 10', sans-serif;
+      color: #9FB191;
+      font-size: clamp(2rem,2vw + 1rem,2.3rem);
+      border-bottom: 1px dashed rgb(159, 177, 145,0.5);
+      padding-bottom: 2px;
+      font-weight:100 ;
+
+    }
+    .serialNo{
+        font-size: 1.4rem;
     }
 </style>

@@ -1,3 +1,7 @@
+---
+import Navbar from '../components/Navbar.astro';
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -9,7 +13,11 @@
 		<title>Portfolio</title>
 	</head>
 	<body>
-		<slot />
+    	<Navbar></Navbar>
+    <main>
+      <slot />
+    </main>
+		
 	</body>
 </html>
 
@@ -20,33 +28,48 @@
 		height: 100%;
 		
 	}
-	html {
-background:
-  /* layer 1: dots*/
-  radial-gradient(rgba(255, 255, 255, 0.05) 0.5px, transparent 0.5px),
-
-  /* layer 2: stripes*/
-  repeating-linear-gradient(
-  -45deg,
-  rgba(57, 79, 68, 0.2),   
-  rgba(57, 79, 68, 0.2) 20px,
-  rgba(54, 66, 60, 0.2) 20px,  
-  rgba(54, 66, 60, 0.2) 40px
-),
-   /* layer 3: base gradient  */
-    linear-gradient(to right, #384d4a, #2c373b);
-
-background-size:
-  30px 30px,   
-  auto,   
-  auto;        
-
-
-background-position:
-  0 0,         
-  0 0,    
-  0 0;         
-
+  main{
+        margin:0 clamp(0.2rem, 16vw, 400px);
   }
-</style>
+	html {
+    background:
+    /* layer 1: dots*/
+    radial-gradient(rgba(255, 255, 255, 0.05) 0.5px, transparent 0.5px),
+    
+    /* layer 2: stripes*/
+    repeating-linear-gradient(
+      -45deg,
+      rgba(57, 79, 68, 0.2),   
+      rgba(57, 79, 68, 0.2) 20px,
+      rgba(54, 66, 60, 0.2) 20px,  
+      rgba(54, 66, 60, 0.2) 40px
+      ),
+      /* layer 3: base gradient  */
+      linear-gradient(to right, #384d4a, #2c373b);
+      
+      background-size:
+      30px 30px,   
+      auto,   
+      auto;        
+      
+      
+      background-position:
+      0 0,         
+      0 0,    
+      0 0;         
+      
+    }
+  @media(max-width:576px){
+    main{
+      margin:0 0.2rem;
+      padding-left:0;
+    }
+  }
+  @media(max-width:1024px){
+    main{
+      padding-left: 0;
+      padding:0 4rem;
+    }
+  }
+  </style>
 

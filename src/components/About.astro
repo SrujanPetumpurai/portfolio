@@ -1,29 +1,41 @@
 <div class="about">
-    <h2>01 About</h2>
+    <h2><span class="serialNo">01</span> About</h2>
         <p>
-            Hey, I'm Srujan — a full stack developer who loves building things from the ground up. Whether it's crafting smooth, fast frontends with Next.js, wiring up solid Node.js backends, or managing data with PostgreSQL, I enjoy owning the full journey of a product.
-    I'm fresh out of school, but don't let that fool you — I come armed with real skills, a containerized workflow (shoutout Docker 🐳), and a genuine passion for writing clean, purposeful code.
-    Outside of code, I play chess. Sitting at 1200 right now — not amazing, not embarrassing. Still figuring out why I keep blundering my queen in endgames 😬
-    I'm currently open to exciting opportunities. If you're looking for someone who's eager, adaptable, and ready to ship — let's talk!
-    </p>
+            Hey, I'm Srujan — a full stack developer who loves building real things from the ground up. Whether it's crafting smooth, fast frontends with Next.js, wiring up solid Node.js backends, or managing data with PostgreSQL, I enjoy owning the full journey of a product.
+
+        </p>
+        <p>
+            I'm fresh out of school, but don't let that fool you — I come armed with real skills, a containerized workflow (shoutout Docker 🐳), and a genuine passion for writing clean, purposeful code.
+
+        </p>
+            <p>
+            
+               Outside of code, I play chess ♟️. Sitting at 1200 right now — not amazing, not embarrassing. Still figuring out why I keep blundering my queen in endgames 😬
+        I'm currently open to exciting opportunities. If you're looking for someone who's eager, adaptable, and ready to ship — let's talk!
+        </p>
 </div>
 <style>
     .about{
-        width: min(65ch,100%);
-        max-width: 65ch;
-        margin-left: clamp(0rem,16vw,400px);
-        margin-top: clamp(1rem, 7vw, 10rem);;
+        width: min(740px,100%);
+        margin-top: clamp(1rem, 7vw, 10rem);
     }
     h2{
       font-family: 'Jersey 10', sans-serif;
       color: #9FB191;
+      font-size: clamp(2rem,2vw + 1rem,2.3rem);
       border-bottom: 1px solid rgb(159, 177, 145,0.5);
       padding-bottom: 2px;
-      
+      font-weight:100 ;
+    }
+    .serialNo{
+        font-size: 1.4rem;
     }
     p{
-      font-family: 'pixelify sans', sans-serif;
+      font-family: 'Pixelify Sans', sans-serif;
         color: #9FB191;
         font-weight: 400;
+        line-height: 1.7;
+        letter-spacing: 0.03em;
+        margin-bottom:clamp(1rem, 2vw, 2rem); ;
     }
 </style>

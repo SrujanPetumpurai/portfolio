@@ -3,11 +3,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;    
-    overflow-x: hidden;
-
 }
+html, body {
+    overflow-x: hidden;
+}
+
 /* jersey for heading */
-/* pixelify sans for navBar */
+/* Pixelify Sans for navBar */
+/* JetBrains Mono for stack */
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;

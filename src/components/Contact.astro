@@ -1,3 +1,119 @@
 <section id="contact">
-    This is Contacts
+    <h2><span class="serialNo">04</span> This is Contacts</h2>
+    <div class="ContactDiv">
+        <div class="Details">
+            <p>Open to freelance projects and full-time jobs.Reach out directly or use the form below.</p>
+            <ul>
+                <li>srujan.petumpurai@gmail.com</li>
+                <li>github.com/SrujanPetumpurai</li>
+                <li>linkedin.com/in/srujan-petumpuri-1a13981ba</li>
+            </ul>
+        </div>
+        <form action="mailto:srujan.petumpurai@gmail.com" method="POST" enctype="text/plain">
+            <input type="text" name="Name" placeholder="Your name" />
+            <input type="email" name="Email" placeholder="Your email" />
+            <textarea name="Message" placeholder="Your message"></textarea>
+            <button type="submit">Send message</button>
+        </form>
+    </div>
 </section>
+
+<style>
+    section{
+        margin-top: clamp(1rem, 7vw, 10rem);
+        width:100%
+    }
+    h2{
+        font-family: 'Jersey 10', sans-serif;
+        color: #9FB191;
+        font-size: clamp(2rem,2vw + 1rem,2.3rem);
+        border-bottom: 1px dashed rgb(159, 177, 145,0.5);
+        padding-bottom: 2px;
+        font-weight:100 ;
+    }
+    .serialNo{
+        font-size: 1.4rem;
+    }
+    .ContactDiv{
+     margin-top: 2rem;
+     display: flex;
+     gap:2rem;
+    }
+    .Details{
+        font-family:'Pixelify Sans',sans-serif ;
+        color: #9FB191;
+        width:48%;
+    }
+    p{
+        font-weight: 400;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.2rem;
+        letter-spacing: 0.5px;
+    }
+    .Details ul {
+        list-style: none;
+    }
+    .Details ul li{
+        margin-top: 0.6rem;
+        color: #D2DDB1;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+        text-decoration-style: dashed;
+        text-decoration-thickness: 1px;
+        text-decoration-color: rgba(210, 221, 177,0.4);
+    }
+    form{
+        width:48%;
+        border-top: 1px dashed rgba(210, 221, 177,0.4);
+        display: flex;
+        flex-direction: column;
+        color:#9FB08D;
+    }
+
+    form input{
+        all:unset;
+        border-bottom: 1px solid rgba(210, 221, 177,0.4);
+        padding-bottom: 1.2rem;
+        padding-top:0.4rem;
+        font-family:'Pixelify Sans',sans-serif ;
+    }
+    form input::placeholder{
+        color: #9FB08D;
+        font-family:'Pixelify Sans',sans-serif ;
+
+    }
+    form textarea::placeholder{
+        color: #9FB08D;
+        font-family:'Pixelify Sans',sans-serif ;
+
+    }
+    form textarea{
+        all:unset;
+        height: 6rem;
+        padding-top:1rem;
+        border-bottom:1px solid rgba(210, 221, 177,0.4);
+        font-family:'Pixelify Sans',sans-serif ;
+
+    }
+    form button{
+        all:unset;
+        font-family:'Pixelify Sans',sans-serif ;
+        color: #D2DDB1;
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding-top: 1.2rem;
+        text-decoration: underline;
+        text-decoration-style: dashed;
+        text-underline-offset: 0.4rem;
+        text-decoration-color: rgba(210, 221, 177,0.4);
+        transition:transform 0.1s ease-in,text-decoration-color 0.1s ease-in;
+    }
+    form button:hover{
+        transform:translateY(-2px);
+        text-decoration-color: #D2DDB1;
+    }
+
+</style>
