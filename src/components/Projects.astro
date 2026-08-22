@@ -14,6 +14,13 @@ const projects =[
         description:'A complete end-to-end online grocery website with payment gateway integration and interactive maps via Leaflet',
         sourceUrl:'https://github.com/SrujanPetumpurai/grubnest',
         liveUrl:'https://grubnest.vercel.app/home'
+    },
+    {
+    stack:['Next.js','Prisma','Neon Postgres','Cloudflare R2','TypeScript'],
+    title:'AI Talent Screening Platform',
+    description:'An AI-powered recruitment platform that analyzes job descriptions, sources candidates via LinkedIn scraping, scores them with semantic similarity, and runs async video interviews with automated transcription and scoring',
+    sourceUrl:'https://github.com/SrujanPetumpurai/talent-screening',
+    liveUrl:'https://talent-screening.vercel.app/'
     }
 ]
 ---
@@ -21,7 +28,7 @@ const projects =[
     <h2><span class="serialNo">02</span>Projects</h2>
     <ProjectCard stack={projects[0].stack} title={projects[0].title} description={projects[0].description} srouceUrl={projects[0].sourceUrl} liveUrl={projects[0].liveUrl} ></ProjectCard>
     <ProjectCard stack={projects[1].stack} title={projects[1].title} description={projects[1].description} srouceUrl={projects[1].sourceUrl} liveUrl={projects[1].liveUrl} ></ProjectCard>
-    
+    <ProjectCard stack={projects[2].stack} title={projects[2].title} description={projects[2].description} srouceUrl={projects[2].sourceUrl} liveUrl={projects[2].liveUrl} ></ProjectCard>
 </section>
 <style>
     section{
